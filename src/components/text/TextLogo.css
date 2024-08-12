@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.text-logo{   
+    background: transparent; 
+    z-index: -1!important;
+}
+
+.text-logo h2 {
+    color: transparent;
+    font-size: 30px!important;
+    text-transform: uppercase;
+    margin-left: 15px;
+    
+    -webkit-text-stroke: 3px #10B981;
+}
