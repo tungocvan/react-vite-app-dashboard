@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
+import { toast } from 'react-toastify';
 import {
   loginUser,
   accountsSelector,
@@ -12,7 +13,6 @@ import "./login.scss";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const accounts = useSelector(accountsSelector);
   const { isLogin, isLoading } = accounts;
   const location = useLocation();
@@ -30,7 +30,11 @@ export default function Login() {
         navigate("/dashboard");
       })
       .catch((error) => {
-        console.log("Co loi xay ra:", error);
+        // console.log("Co loi xay ra:", error);
+        toast.error("email hoặc mật khẩu không đúng", {          
+          position: "top-left"
+        });
+
       });
   };
 
@@ -74,7 +78,6 @@ export default function Login() {
             />
           </div>
 
-          {error && <p className="error-message">{error}</p>}
           {isLoading ? (
             <button disabled className="btn mt-3" type="submit">
               Loading...

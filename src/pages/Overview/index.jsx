@@ -1,19 +1,18 @@
 import { BarChart2, ShoppingBag, Users, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
-import Header from "~/components/common/Header";
 import StatCard from "~/components/common/StatCard";
 import SalesOverviewChart from "~/components/overview/SalesOverviewChart";
 import CategoryDistributionChart from "~/components/overview/CategoryDistributionChart";
 import SalesChannelChart from "~/components/overview/SalesChannelChart";
-import Layout from "~/components/layout";
+
 
 const Overview = () => {
 	return (
 		<>
 			{/* STATS */}
 			<motion.div
-					className='grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-8'
+					className='grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-8 -z-1'
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1 }}
@@ -27,8 +26,8 @@ const Overview = () => {
 				{/* CHARTS */}
 
 				<div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
-					{/* <SalesOverviewChart />					
-					<SalesChannelChart /> */}
+					 <SalesOverviewChart />					
+					<SalesChannelChart />
 					<CategoryDistributionChart />
 				</div>
 		</>

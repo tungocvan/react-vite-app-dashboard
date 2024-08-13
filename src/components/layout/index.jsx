@@ -11,9 +11,9 @@ const Layout = ({ children , title }) => {
 			</div>
 
 			<Sidebar />		
-			<div className='flex-1 overflow-auto relative z-10'>
+			<div className='flex-1 overflow-auto relative'>
 				<Header title={title || ''} />         
-				<main className='max-w-7xl py-6 px-4 lg:px-8'>
+				<main className='max-w-7xl py-6 px-4 lg:px-8 z-0'>
 					{ children }
 				</main>
 			</div>
