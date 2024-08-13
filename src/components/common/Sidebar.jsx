@@ -1,39 +1,11 @@
-import { BarChart2, DollarSign, Menu, Settings, ShoppingBag, ShoppingCart, TrendingUp, Users, ChevronDown } from "lucide-react";
-
+import { Menu, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import TextLogo from "../text/TextLogo";
+import logo from "~/assets/logo.png";
+import config from '~/config';
 
-const SIDEBAR_ITEMS = [
-	{
-		name: "Overview",
-		icon: BarChart2,
-		color: "#6366f1",
-		href: "/",
-	},
-	{ 
-		name: "Products", 
-		icon: ShoppingBag, 
-		color: "#8B5CF6", 
-		href: "/products",
-		submenu: [
-			{ name: "All Products", href: "/products/all" },
-			{ name: "Categories", href: "/products/categories" }
-		]
-	},
-	{ name: "Users", icon: Users, color: "#EC4899", href: "/users" },
-	{ 
-		name: "Sales", icon: DollarSign, color: "#10B981", href: "/sales",
-		submenu: [
-			{ name: "All Sales", href: "/sales/all" },
-			{ name: "Categories", href: "/sales/categories" }
-		] 
-	},
-	{ name: "Orders", icon: ShoppingCart, color: "#F59E0B", href: "/orders" },
-	{ name: "Analytics", icon: TrendingUp, color: "#3B82F6", href: "/analytics" },
-	{ name: "Settings", icon: Settings, color: "#6EE7B7", href: "/settings" },
-];
+const SIDEBAR_ITEMS = config.menuSidebar;
 
 
 const Sidebar = () => {
@@ -61,7 +33,13 @@ const Sidebar = () => {
 				>
 					<Menu size={24} />										
 				</motion.button>			
-				{isSidebarOpen && <TextLogo title='HAMADA' /> }
+				{isSidebarOpen && <Link to="/">
+				<img
+					src={logo}
+					alt='Profile'
+					className='rounded-full w-full  object-cover mr-4'
+				/>
+				</Link> }
 			</div>
 				<nav className='mt-8 flex-grow'>
 					{SIDEBAR_ITEMS.map((item) => (
