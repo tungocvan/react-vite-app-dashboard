@@ -21,13 +21,23 @@ const ProductsTable = ({ products, currentPage, productsPerPage }) => {
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
-    const filtered = products.filter(
-      (product) =>
-        product.name.toLowerCase().includes(term) ||
-        product.category.toLowerCase().includes(term)
-    );
-    setFilteredProducts(filtered);
+  
+    if (term === "") {
+      // Nếu không có từ khóa tìm kiếm, hiển thị toàn bộ sản phẩm
+      const startIndex = (currentPage - 1) * productsPerPage;
+      const endIndex = startIndex + productsPerPage;
+      setFilteredProducts(products.slice(startIndex, endIndex));
+    } else {
+      // Nếu có từ khóa tìm kiếm, lọc sản phẩm theo từ khóa
+      const filtered = products.filter(
+        (product) =>
+          product.name.toLowerCase().includes(term) ||
+          product.category.toLowerCase().includes(term)
+      );
+      setFilteredProducts(filtered);
+    }
   };
+  
 
   const handleEdit = (item) => {
     if (item) {
