@@ -15,6 +15,9 @@ const routes = {
     orders: '/orders',
     analytics: '/analytics',    
     settings: '/settings',
+    youtube: '/youtube',
+    currency: '/currency',
+    loginOne: '/login-one',
 };
 
 export default routes;

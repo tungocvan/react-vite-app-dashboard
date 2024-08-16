@@ -21,6 +21,9 @@ import Sales from "~/pages/Sales";
 import Orders from "~/pages/Orders";
 import Analytics from "~/pages/Analytics";
 import Settings from "~/pages/Settings";
+import Youtube from "~/pages/Youtube";
+import Currency from "~/pages/Currency";
+import LoginOne from "~/pages/LoginOne";
 
 
 
@@ -33,6 +36,9 @@ const publicRoutes = [
     { path: config.routes.logout, component: Logout},
     { path: config.routes.register, component: Register},
     { path: config.routes.forget, component: Forget},
+    { path: config.routes.youtube, component: Youtube},
+    { path: config.routes.currency, component: Currency},
+    { path: config.routes.loginOne, component: LoginOne},
 
 ];
 
